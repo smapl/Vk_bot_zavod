@@ -6,6 +6,7 @@ This simple bot which will post message in chat with homework and other any even
 You need use operating system Linux and you need have `pyenv` and `poetry`.
 After clone project make commands in CLI as:
 ```
+pyenv install 3.6.6
 pyenv local 3.6.6
 poetry install
 ```
