@@ -7,7 +7,13 @@ longpoll = VkLongPoll(vk_session)
 vk = vk_session.get_api()
 
 for event in longpoll.listen():
+    print(event)
     if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
         if event.text == "как дела?" or event.text == "чо как":
-            if event.from_chat():
-                vk.message_send(chat_id=event.chat_id, message="Всё путем, чувак")
+            if event.from_chat:
+                vk.messages.send(chat_id=event.chat_id, message="Всё путем, чувак")
+
+            elif event.from_user:
+                vk.messages.send(
+                    user_id=event.user_id, message="так то всё путем", random_id=1234
+                )
